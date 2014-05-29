@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Spawner : MonoBehaviour {
 
@@ -9,13 +10,12 @@ public class Spawner : MonoBehaviour {
     public string[] objectKeys;
     public Vector3[] spawnPositions;
     public string[] spawnPatterns;
-    
+
     private float _timer;
-    private List<Transform> _queue;
 
 	// Use this for initialization
 	void Start () {
-        _queue = new List<Transform>();
+
 	}
 	
 	// Update is called once per frame
@@ -60,15 +60,6 @@ public class Spawner : MonoBehaviour {
 
     private void CreateObject(Transform prefab, Vector3 position)
     {
-        var obj = FiendDisabled();
-        if (obj == null)
-        {
-            obj = (Transform)Instantiate(prefab, position, Quaternion.identity);
-        }
-    }
-
-    private Transform FiendDisabled()
-    {
-        return null;
+        var obj = (Transform)Instantiate(prefab, position, Quaternion.identity);
     }
 }

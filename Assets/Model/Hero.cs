@@ -5,6 +5,7 @@ public class Hero : MonoBehaviour
 {
 
     public ParticleSystem blood;
+    public Transform bloodExplosion;
     public float fireTime;
     public Transform fire1;
 
@@ -45,8 +46,6 @@ public class Hero : MonoBehaviour
         var enemy = other.transform.GetComponent<Monster>();
         if (enemy != null)
         {
-            Destroy(other.gameObject);
-
             Physics.IgnoreCollision(this.collider, other.collider);
             if (renderer.enabled)
             {
@@ -76,8 +75,10 @@ public class Hero : MonoBehaviour
 
     private void Death()
     {
-        blood.Emit(10);
         blood.audio.Play();
+        Instantiate(bloodExplosion, transform.position, Quaternion.identity);
+        blood.Emit(10);
         renderer.enabled = false;
+        Score.points = 0;
     }
 }

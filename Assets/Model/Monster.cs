@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Monster : MonoBehaviour {
 
+    public Transform bloodExplosion;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -19,7 +21,31 @@ public class Monster : MonoBehaviour {
         if (fire != null)
         {
             Destroy(other.gameObject);
-            Destroy(gameObject);
+            Death();
         }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        var hero = other.transform.GetComponent<Hero>();
+        if (hero != null)
+        {
+            Death();
+        }
+        else
+        {
+            var road = other.transform.GetComponent<Road>();
+            if (road != null)
+            {
+                Physics.IgnoreCollision(this.collider, other.collider);
+            }
+        }
+    }
+
+    private void Death()
+    {
+        Score.points += 10;
+        Instantiate(bloodExplosion, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
