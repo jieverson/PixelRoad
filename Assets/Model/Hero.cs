@@ -12,6 +12,18 @@ public class Hero : MonoBehaviour
     private float _fireTimer = float.MaxValue;
     private bool _firing;
 
+    public bool IsAlive
+    {
+        get
+        {
+            return this.GetComponent<SpriteRenderer>().renderer.enabled;
+        }
+        set
+        {
+            this.GetComponent<SpriteRenderer>().renderer.enabled = value;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -21,9 +33,11 @@ public class Hero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!renderer.enabled && !blood.isPlaying)
+        //if (!renderer.enabled && !blood.isPlaying)
+        if (!IsAlive && !blood.isPlaying)
         {
-            renderer.enabled = true;
+            //renderer.enabled = true;
+            IsAlive = true;
             transform.position = new Vector3(0, 0.75f, 0);
         }
 
@@ -31,7 +45,8 @@ public class Hero : MonoBehaviour
         {
             _fireTimer += Time.deltaTime;
         }
-        if (renderer.enabled && (Input.GetButton("Jump") || Input.touchCount > 0))
+        //if (renderer.enabled && (Input.GetButton("Jump") || Input.touchCount > 0))
+        if (IsAlive && (Input.GetButton("Jump") || Input.touchCount > 0))
         {
             if (_fireTimer >= fireTime)
             {
@@ -47,7 +62,8 @@ public class Hero : MonoBehaviour
         if (enemy != null)
         {
             Physics.IgnoreCollision(this.collider, other.collider);
-            if (renderer.enabled)
+            //if (renderer.enabled)
+            if(IsAlive)
             {
                 Death();
             }
@@ -59,7 +75,8 @@ public class Hero : MonoBehaviour
         var wall = other.transform.GetComponent<Wall>();
         if (wall != null)
         {
-            if (renderer.enabled)
+            //if (renderer.enabled)
+            if (IsAlive)
             {
                 Death();
             }
@@ -78,7 +95,8 @@ public class Hero : MonoBehaviour
         blood.audio.Play();
         Instantiate(bloodExplosion, transform.position, Quaternion.identity);
         blood.Emit(10);
-        renderer.enabled = false;
+        //renderer.enabled = false;
+        IsAlive = false;
         Score.points = 0;
     }
 }

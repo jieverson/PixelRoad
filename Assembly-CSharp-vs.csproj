@@ -53,6 +53,7 @@
      <Compile Include="Assets\Model\Score.cs" />
      <Compile Include="Assets\Model\Wall.cs" />
      <Compile Include="Assets\Script\AnimatedUVs.cs" />
+     <Compile Include="Assets\Script\Chooser.cs" />
      <Compile Include="Assets\Script\ScreenOrientation.cs" />
      <Compile Include="Assets\Script\Spawner.cs" />
      <Compile Include="Assets\Script\TranslateControl.cs" />
