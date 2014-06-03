@@ -3,38 +3,85 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour {
 
+    public AudioSource selectSound, backgroundMusic;
+
     public GUIStyle buttonStyle;
 
-    //public GUISkin skin;
+    private enum Action { None, Start, HighScore, Exit }
 
-    //public GUIContent newGame;
+    private float _centerX, _centerY, _sizeX, _sizeY, _posX;
 
-    //public GUIContent exit;
+    private Action _action;
+
+    void Start()
+    {
+        _action = Action.None;
+        _centerX = Screen.width / 2;
+        _centerY = Screen.height / 2.2f;
+        _sizeX = Screen.width / 3;
+        _sizeY = Screen.height / 7;
+        _posX = _centerX - _sizeX / 2;
+    }
 
     void OnGUI()
     {
-
-        //GUI.Window(555, new Rect((Screen.width / 2) - 100f, (Screen.height / 2) - 60f, 200f, 120f), null, "something", GUIStyle.none);
-
-        //var box = GUI.Box(new Rect(Screen.width / 2f, Screen.height / 3, Screen.width / 3, Screen.height / 10), "New Game");
-
-        var centerX = Screen.width / 2;
-        var centerY = Screen.height / 2.2f;
-        var sizeX = Screen.width / 3;
-        var sizeY = Screen.height / 7;
-        var posX = centerX - sizeX / 2;
-
-        if (GUI.Button(new Rect(posX, centerY, sizeX, sizeY), "new game", buttonStyle))
+        if (_action == Action.None)
         {
-            Application.LoadLevel(1);
+            if (GUI.Button(new Rect(_posX, _centerY, _sizeX, _sizeY), "new game", buttonStyle))
+            {
+                selectSound.Play();
+                _action = Action.Start;
+            }
+            if (GUI.Button(new Rect(_posX, _centerY + _sizeY, _sizeX, _sizeY), "high score", buttonStyle))
+            {
+                selectSound.Play();
+                _action = Action.HighScore;
+            }
+            else if (GUI.Button(new Rect(_posX, _centerY + _sizeY * 2, _sizeX, _sizeY), "exit", buttonStyle))
+            {
+                selectSound.Play();
+                _action = Action.Exit;
+            }
         }
-        if (GUI.Button(new Rect(posX, centerY + sizeY, sizeX, sizeY), "high score", buttonStyle))
+        else
         {
-
+            if (_action == Action.Start)
+            {
+                GUI.Button(new Rect(_posX, _centerY, _sizeX, _sizeY), "new game", buttonStyle);
+            }
+            else if (_action == Action.HighScore)
+            {
+                GUI.Button(new Rect(_posX, _centerY + _sizeY, _sizeX, _sizeY), "high score", buttonStyle);
+            }
+            else if (_action == Action.Exit)
+            {
+                GUI.Button(new Rect(_posX, _centerY + _sizeY * 2, _sizeX, _sizeY), "exit", buttonStyle);
+            }
         }
-        else if (GUI.Button(new Rect(posX, centerY + sizeY * 2, sizeX, sizeY), "exit", buttonStyle))
+    }
+
+    void Update()
+    {
+        if (_action != Action.None)
         {
-            Application.Quit();
+            backgroundMusic.volume -= 1;
+
+            if (!selectSound.isPlaying)
+            {
+                if (_action == Action.Start)
+                {
+                    Application.LoadLevel(1);
+                }
+                else if (_action == Action.HighScore)
+                {
+                    _action = Action.None;
+                    backgroundMusic.volume = 1;
+                }
+                else if (_action == Action.Exit)
+                {
+                    Application.Quit();
+                }
+            }
         }
     }
 }
