@@ -13,7 +13,7 @@ public class TranslateControl : MonoBehaviour {
     public float maxY = float.MaxValue;
 
     public float accelMult = 1;
-	
+
 	void Update () {
         var axisX = Input.GetAxis("Horizontal");
         var axisY = Input.GetAxis("Vertical");

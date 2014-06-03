@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Model\Fire.cs" />
      <Compile Include="Assets\Model\Hero.cs" />
+     <Compile Include="Assets\Model\MainMenu.cs" />
      <Compile Include="Assets\Model\Monster.cs" />
      <Compile Include="Assets\Model\Road.cs" />
      <Compile Include="Assets\Model\Score.cs" />
