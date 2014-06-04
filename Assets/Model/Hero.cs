@@ -24,19 +24,15 @@ public class Hero : MonoBehaviour
         }
     }
 
-    // Use this for initialization
     void Start()
     {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if (!renderer.enabled && !blood.isPlaying)
         if (!IsAlive && !blood.isPlaying)
         {
-            //renderer.enabled = true;
             IsAlive = true;
             transform.position = new Vector3(0, 0.75f, 0);
         }
@@ -45,14 +41,17 @@ public class Hero : MonoBehaviour
         {
             _fireTimer += Time.deltaTime;
         }
-        //if (renderer.enabled && (Input.GetButton("Jump") || Input.touchCount > 0))
-        if (IsAlive && (Input.GetButton("Jump") || Input.touchCount > 0))
+        if (IsAlive && !_firing && !Pause.IsPaused && (Input.GetButton("Jump") || Input.touchCount > 0))
         {
             if (_fireTimer >= fireTime)
             {
                 _fireTimer = 0;
                 Fire();
             }
+        }
+        if (!(Input.GetButton("Jump") || Input.touchCount > 0))
+        {
+            _firing = false;
         }
     }
 
@@ -61,8 +60,7 @@ public class Hero : MonoBehaviour
         var enemy = other.transform.GetComponent<Monster>();
         if (enemy != null)
         {
-            Physics.IgnoreCollision(this.collider, other.collider);
-            //if (renderer.enabled)
+            Physics.IgnoreCollision(this.collider, other.collider);            
             if(IsAlive)
             {
                 Death();
@@ -75,7 +73,6 @@ public class Hero : MonoBehaviour
         var wall = other.transform.GetComponent<Wall>();
         if (wall != null)
         {
-            //if (renderer.enabled)
             if (IsAlive)
             {
                 Death();
@@ -95,7 +92,6 @@ public class Hero : MonoBehaviour
         blood.audio.Play();
         Instantiate(bloodExplosion, transform.position, Quaternion.identity);
         blood.Emit(10);
-        //renderer.enabled = false;
         IsAlive = false;
         Score.points = 0;
     }

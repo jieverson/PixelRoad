@@ -7,12 +7,6 @@ public class TimeToLive : MonoBehaviour {
 
     private float _count;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void Update () {
         _count += Time.deltaTime;
 
