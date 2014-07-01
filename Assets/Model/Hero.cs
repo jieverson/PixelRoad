@@ -33,8 +33,9 @@ public class Hero : MonoBehaviour
     {
         if (!IsAlive && !blood.isPlaying)
         {
-            IsAlive = true;
-            transform.position = new Vector3(0, 0.75f, 0);
+            //IsAlive = true;
+            //transform.position = new Vector3(0, 0.75f, 0);
+            Application.LoadLevel(2);
         }
 
         if (_fireTimer < fireTime)
