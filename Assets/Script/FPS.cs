@@ -27,7 +27,6 @@ public class FPS : MonoBehaviour
     {
         if (!guiText)
         {
-            Debug.Log("UtilityFramesPerSecond needs a GUIText component!");
             enabled = false;
             return;
         }

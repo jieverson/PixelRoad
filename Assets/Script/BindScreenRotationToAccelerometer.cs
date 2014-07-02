@@ -23,7 +23,7 @@ public class BindScreenRotationToAccelerometer : MonoBehaviour {
 
             var addAngle = speed * horizontal * Time.deltaTime;
             var currentAngle = this.transform.rotation.eulerAngles.z;
-            Debug.Log(this.transform.rotation.eulerAngles.z);
+
             if (currentAngle + addAngle >= 360 + minAngle ||
                 currentAngle + addAngle <= maxAngle)
             {

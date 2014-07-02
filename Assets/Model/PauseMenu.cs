@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : MonoBehaviour
+{
 
     public AudioSource selectSound;
     public GUIStyle selectedButtonStyle, normalButtonStyle;
@@ -11,7 +12,8 @@ public class PauseMenu : MonoBehaviour {
     private float _centerX, _centerY, _sizeX, _sizeY, _posX;
     private Action _action, _selection;
 
-	void Start () {
+    void Start()
+    {
         _centerX = Screen.width / 2;
         _centerY = Screen.height / 2.2f;
         _sizeX = Screen.width / 3;
@@ -19,7 +21,7 @@ public class PauseMenu : MonoBehaviour {
         _posX = _centerX - _sizeX / 2;
         _action = Action.None;
         _selection = Action.Resume;
-	}
+    }
 
     void OnGUI()
     {
@@ -32,7 +34,7 @@ public class PauseMenu : MonoBehaviour {
                     _selection = Action.Resume;
                     Pause.Resume();
                     _action = Action.None;
-                    
+
                 }
                 else if (ExitButton())
                 {
@@ -55,20 +57,19 @@ public class PauseMenu : MonoBehaviour {
         }
     }
 
-	void Update () {
+    void Update()
+    {
         if (Pause.IsPaused)
         {
             if (_action == Action.None)
             {
-                if(!selectSound.isPlaying){
-                    if (Input.GetAxis("Vertical") != 0)
-                    {
-                        selectSound.Play();
-                        if (_selection == Action.Resume)
-                            _selection = Action.Exit;
-                        else if (_selection == Action.Exit)
-                            _selection = Action.Resume;
-                    }
+                if (Input.GetButtonDown("Vertical") || (!selectSound.isPlaying && Input.GetAxis("Vertical") != 0))
+                {
+                    selectSound.Play();
+                    if (_selection == Action.Resume)
+                        _selection = Action.Exit;
+                    else if (_selection == Action.Exit)
+                        _selection = Action.Resume;
                 }
                 if (Input.GetButton("Jump") || Input.GetKey(KeyCode.Return))
                 {
@@ -96,7 +97,7 @@ public class PauseMenu : MonoBehaviour {
                 }
             }
         }
-	}
+    }
 
     private bool ResumeButton()
     {
