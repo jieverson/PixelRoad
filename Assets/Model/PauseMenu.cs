@@ -54,14 +54,14 @@ public class PauseMenu : MonoBehaviour {
             }
         }
     }
-	
+
 	void Update () {
         if (Pause.IsPaused)
         {
             if (_action == Action.None)
             {
                 if(!selectSound.isPlaying){
-                    if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+                    if (Input.GetAxis("Vertical") != 0)
                     {
                         selectSound.Play();
                         if (_selection == Action.Resume)
@@ -70,7 +70,7 @@ public class PauseMenu : MonoBehaviour {
                             _selection = Action.Resume;
                     }
                 }
-                if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.Space))
+                if (Input.GetButton("Jump") || Input.GetKey(KeyCode.Return))
                 {
                     _action = _selection;
                     if (_action == Action.Resume)

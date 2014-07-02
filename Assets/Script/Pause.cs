@@ -15,7 +15,7 @@ public class Pause : MonoBehaviour {
 	}
 	
 	void Update () {
-        if ((Input.GetKeyDown(KeyCode.Escape)) || _isResuming)
+        if (Input.GetButtonDown("Pause") || Input.GetKeyDown(KeyCode.Escape) || _isResuming)
         {
             _isResuming = false;
 

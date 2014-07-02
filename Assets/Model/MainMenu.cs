@@ -75,7 +75,7 @@ public class MainMenu : MonoBehaviour {
             }
             else
             {
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (Input.GetAxis("Vertical") > 0)
                 {
                     selectSound.Play();
                     keyTimer = 0;
@@ -86,7 +86,7 @@ public class MainMenu : MonoBehaviour {
                     else if (_selection == Action.Exit)
                         _selection = Action.HighScore;
                 }
-                if (Input.GetKey(KeyCode.DownArrow))
+                if (Input.GetAxis("Vertical") < 0)
                 {
                     selectSound.Play();
                     keyTimer = 0;
@@ -98,12 +98,12 @@ public class MainMenu : MonoBehaviour {
                         _selection = Action.Start;
                 }
             }
-            if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Return) || Input.GetButton("Jump"))
             {
                 selectSound.Play();
                 _action = _selection;
             }
-            if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetButton("Back"))
             {
                 selectSound.Play();
                 _selection = Action.Exit;
@@ -123,9 +123,10 @@ public class MainMenu : MonoBehaviour {
                 }
                 else if (_action == Action.HighScore)
                 {
-                    _action = Action.None;
-                    backgroundMusic.volume = 1;
-                    light.intensity = 0.5f;
+                    //_action = Action.None;
+                    //backgroundMusic.volume = 1;
+                    //light.intensity = 0.5f;
+                    Application.LoadLevel(2);
                 }
                 else if (_action == Action.Exit)
                 {

@@ -5,6 +5,8 @@ public class BindScreenRotationToAccelerometer : MonoBehaviour {
 
     public float speed, minAngle, maxAngle, time;
 
+    public float accelerometerMultiplier = 1.5F;
+
     private float _timer;
 
     void Update () {
@@ -14,10 +16,12 @@ public class BindScreenRotationToAccelerometer : MonoBehaviour {
         {
             _timer -= time;
 
-            var accelX = Input.GetAxis("Horizontal");
-            //var accelX = Input.acceleration.x;
+            var axisX = Input.GetAxis("Horizontal");
+            var accelX = Input.acceleration.x;
 
-            var addAngle = speed * accelX * Time.deltaTime;
+            var horizontal = axisX != 0 ? axisX : accelX * accelerometerMultiplier * -1;
+
+            var addAngle = speed * horizontal * Time.deltaTime;
             var currentAngle = this.transform.rotation.eulerAngles.z;
             Debug.Log(this.transform.rotation.eulerAngles.z);
             if (currentAngle + addAngle >= 360 + minAngle ||

@@ -12,7 +12,10 @@ public class TranslateControl : MonoBehaviour {
     public float minY = float.MinValue;
     public float maxY = float.MaxValue;
 
-    public float accelMult = 1;
+    public float maxAxisXSpeed = 0.75F;
+    public float maxAxisYSpeed = 0.75F;
+
+    public float accelerometerMultiplier = 1.5F;
 
 	void Update () {
         var axisX = Input.GetAxis("Horizontal");
@@ -20,8 +23,13 @@ public class TranslateControl : MonoBehaviour {
         var accelX = Input.acceleration.x;
         var accelY = Input.acceleration.y;
 
-        var horizontal = axisX != 0 ? axisX : accelX * accelMult;
-        var vertical = axisY != 0 ? axisY : accelY * accelMult;
+        if (axisX > maxAxisXSpeed) axisX = maxAxisXSpeed;
+        if (axisX < maxAxisXSpeed * -1) axisX = maxAxisXSpeed * -1;
+        if (axisY > maxAxisYSpeed) axisY = maxAxisYSpeed;
+        if (axisY < maxAxisYSpeed * -1) axisY = maxAxisYSpeed * -1;
+
+        var horizontal = axisX != 0 ? axisX : accelX * accelerometerMultiplier;
+        var vertical = axisY != 0 ? axisY : accelY * accelerometerMultiplier;
 
         if (horizontal != 0 || vertical != 0)
         {

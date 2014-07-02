@@ -35,6 +35,8 @@ public class Hero : MonoBehaviour
         {
             //IsAlive = true;
             //transform.position = new Vector3(0, 0.75f, 0);
+
+            Highscore.UpdateScore(Score.points);
             Application.LoadLevel(2);
         }
 
@@ -93,7 +95,7 @@ public class Hero : MonoBehaviour
         blood.audio.Play();
         Instantiate(bloodExplosion, transform.position, Quaternion.identity);
         blood.Emit(10);
-        IsAlive = false;
-        Score.points = 0;
+        IsAlive = false;        
+        //Score.points = 0;
     }
 }
