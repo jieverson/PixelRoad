@@ -12,6 +12,8 @@ public class Hero : MonoBehaviour
     private float _fireTimer = float.MaxValue;
     private bool _firing;
 
+    public static Transform SelectedHero;
+
     public bool IsAlive
     {
         get
@@ -37,7 +39,7 @@ public class Hero : MonoBehaviour
             //transform.position = new Vector3(0, 0.75f, 0);
 
             Highscore.UpdateScore(Score.points);
-            Application.LoadLevel(2);
+            Application.LoadLevel(3);
         }
 
         if (_fireTimer < fireTime)
@@ -60,7 +62,10 @@ public class Hero : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        var enemy = other.transform.GetComponent<Monster>();
+        Object enemy = other.transform.GetComponent<Monster>();
+        if(enemy == null)
+            enemy = other.transform.GetComponent<Zombie>();
+
         if (enemy != null)
         {
             Physics.IgnoreCollision(this.collider, other.collider);            

@@ -126,7 +126,7 @@ public class MainMenu : MonoBehaviour {
                     //_action = Action.None;
                     //backgroundMusic.volume = 1;
                     //light.intensity = 0.5f;
-                    Application.LoadLevel(2);
+                    Application.LoadLevel(3);
                 }
                 else if (_action == Action.Exit)
                 {

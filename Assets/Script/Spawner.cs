@@ -60,6 +60,6 @@ public class Spawner : MonoBehaviour {
 
     private void CreateObject(Transform prefab, Vector3 position)
     {
-        var obj = (Transform)Instantiate(prefab, position, Quaternion.identity);
+        Instantiate(prefab, position, Quaternion.identity);
     }
 }

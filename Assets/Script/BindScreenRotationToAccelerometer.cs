@@ -9,6 +9,8 @@ public class BindScreenRotationToAccelerometer : MonoBehaviour {
 
     private float _timer;
 
+    public GUIText debug;
+
     void Update () {
 
         _timer += Time.deltaTime;
@@ -29,6 +31,12 @@ public class BindScreenRotationToAccelerometer : MonoBehaviour {
             {
                 this.transform.Rotate(new Vector3(0, 0, 1), addAngle);
             }
+
+            //var angle = Input.acceleration.x * maxAngle * -1;
+            //this.transform.rotation = Quaternion.identity;
+            //this.transform.Rotate(new Vector3(0, 0, 1), angle);
+
+            //debug.text = angle.ToString();
         }
 	}
 }

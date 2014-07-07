@@ -5,6 +5,8 @@ public class Velocity : MonoBehaviour {
 
     public Vector3 rigidbodyVelocity;
 
+    public static float Speed = 1;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -12,6 +14,8 @@ public class Velocity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rigidbody.velocity = rigidbodyVelocity;
+        Speed += Time.deltaTime * 0.001F;
+
+        rigidbody.velocity = rigidbodyVelocity * Speed;
 	}
 }

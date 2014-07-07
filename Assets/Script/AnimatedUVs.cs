@@ -9,9 +9,13 @@ public class AnimatedUVs : MonoBehaviour
 
     Vector2 uvOffset = Vector2.zero;
 
+    public static float Speed = 1;
+
     void LateUpdate()
     {
-        uvOffset += (uvAnimationRate * Time.deltaTime);
+        Speed += Time.deltaTime * 0.01F;
+
+        uvOffset += (uvAnimationRate * Time.deltaTime) * Speed;
         if (renderer.enabled)
         {
             renderer.materials[materialIndex].SetTextureOffset(textureName, uvOffset);
