@@ -82,12 +82,12 @@ public class Highscore : MonoBehaviour
             PlayerPrefs.SetInt("Last Score", 0);
 
         if (!PlayerPrefs.HasKey("First Score"))
-            PlayerPrefs.SetInt("First Score", 800);
+            PlayerPrefs.SetInt("First Score", 0);
 
         if (!PlayerPrefs.HasKey("Second Score"))
-            PlayerPrefs.SetInt("Second Score", 500);
+            PlayerPrefs.SetInt("Second Score", 0);
 
         if (!PlayerPrefs.HasKey("Third Score"))
-            PlayerPrefs.SetInt("Third Score", 100);
+            PlayerPrefs.SetInt("Third Score", 0);
     }
 }
