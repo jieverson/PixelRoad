@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Text;
+using UnityEngine;
 
 namespace UnityGoogleAnalytics.Core
 {
-    public static class Parser
+    public static class TrackService
     {
 
         private const String HOST = "http://www.google-analytics.com";
@@ -11,30 +12,29 @@ namespace UnityGoogleAnalytics.Core
         private const String METHOD = "GET";
         private const String PROTOCOL_VERSION = "1";
 
-        public static String OpenSession()
+        public static void OpenSession()
         {
-            return Parse(GeneratePayloadData(HitType.Event, category: "ApplicationSession", action: "Start", label: "GameStarted", sessionControl: SessionControl.Start));
+            Post(GeneratePayloadData(HitType.Event, category: "ApplicationSession", action: "Start", label: "GameStarted", sessionControl: SessionControl.Start));
         }
 
-        public static String CloseSession()
+        public static void CloseSession()
         {
-            return Parse(GeneratePayloadData(HitType.Event, category: "ApplicationSession", action: "End", label: "GameEnded", sessionControl: SessionControl.End));
+            Post(GeneratePayloadData(HitType.Event, category: "ApplicationSession", action: "End", label: "GameEnded", sessionControl: SessionControl.End));
         }
 
-        public static String PageView(String pageName)
+        public static void PageView(String pageName)
         {
-            //if (!pageName.StartsWith("/")) pageName = "/" + pageName;
-            return Parse(GeneratePayloadData(HitType.PageView, pageName: pageName));
+            Post(GeneratePayloadData(HitType.PageView, pageName: pageName));
         }
 
-        public static String ScreenView(String screenName)
+        public static void ScreenView(String screenName)
         {
-            return Parse(GeneratePayloadData(HitType.ScreenView, screenName: screenName));
+            Post(GeneratePayloadData(HitType.ScreenView, screenName: screenName));
         }
 
-        public static String Event(String category, String action, String label = null, uint? value = null)
+        public static void Event(String category, String action, String label = null, uint? value = null)
         {
-            return Parse(GeneratePayloadData(HitType.Event, category: category, action: action, label: label, value: value));
+            Post(GeneratePayloadData(HitType.Event, category: category, action: action, label: label, value: value));
         }
 
         private static String GeneratePayloadData(HitType hitType, String pageName = null, String screenName = null, String category = null, String action = null, String label = null, uint? value = null, SessionControl sessionControl = SessionControl.None)
@@ -94,10 +94,16 @@ namespace UnityGoogleAnalytics.Core
             return payload_data.ToString();
         }
 
-        private static String Parse(String payload_data)
+        private static String GenerateUrl(String payload_data)
         {
-            String url = String.Format("{0}{1}?{2}", HOST, PATH, payload_data).Replace(" ", String.Empty);
+            String url = String.Format("{0}{1}?{2}", HOST, PATH, payload_data).Replace(" ", "%20");
             return url;
+        }
+
+        private static void Post(String payload_data)
+        {
+            WWW www = new WWW(GenerateUrl(payload_data));
+            while (www.isDone == false) { }
         }
 
     }

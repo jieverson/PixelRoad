@@ -11,7 +11,15 @@ Platform assembly: C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\UnityE
 Loading C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.072 seconds
+- Completed reload, in  0.064 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+http://www.google-analytics.com/collect?v=1&tid=UA-34576486-3&cid=8c95e075d5fe557f25a85c2cf6ae86d0a92f56ce&t=event&ec=Menu&ea=exit&sr=1920x1080
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Ok
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+

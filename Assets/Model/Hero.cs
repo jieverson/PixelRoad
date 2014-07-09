@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityGoogleAnalytics;
 
 public class Hero : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class Hero : MonoBehaviour
             //transform.position = new Vector3(0, 0.75f, 0);
 
             Highscore.UpdateScore(Score.points);
-            Assets.UnityGoogleAnalytics.Track.Event("Score", Score.points.ToString());
+            Track.Event("Score", Score.points.ToString());
             Application.LoadLevel(3);
         }
 

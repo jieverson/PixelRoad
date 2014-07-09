@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityGoogleAnalytics;
 
 public class MainMenu : MonoBehaviour {
 
@@ -122,7 +123,7 @@ public class MainMenu : MonoBehaviour {
             {
                 if (_action == Action.Start)
                 {
-                    Assets.UnityGoogleAnalytics.Track.Event("Menu", "new game");
+                    Track.Event("Menu", "new game");
                     Application.LoadLevel(1);
                 }
                 else if (_action == Action.HighScore)
@@ -130,12 +131,12 @@ public class MainMenu : MonoBehaviour {
                     //_action = Action.None;
                     //backgroundMusic.volume = 1;
                     //light.intensity = 0.5f;
-                    Assets.UnityGoogleAnalytics.Track.Event("Menu", "high score");
+                    Track.Event("Menu", "high score");
                     Application.LoadLevel(3);
                 }
                 else if (_action == Action.Exit)
                 {
-                    Assets.UnityGoogleAnalytics.Track.Event("Menu", "exit");
+                    Track.Event("Menu", "exit");
                     Application.Quit();
                 }
             }

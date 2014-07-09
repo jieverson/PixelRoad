@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using UnityGoogleAnalytics.Core;
 
-public class TrackScene : MonoBehaviour
+namespace UnityGoogleAnalytics
 {
-
-    public string sceneName;
-
-    void Start()
+    public class TrackScene : MonoBehaviour
     {
-        GoogleAnalyticsDefaultSettings.Configure();
 
-        string url = Parser.PageView(sceneName);
-        WWW www = new WWW(url);
-        while (www.isDone == false) { }
+        public string sceneName;
+
+        void Start()
+        {
+            GoogleAnalyticsDefaultSettings.Check();
+
+            TrackService.PageView(sceneName);
+        }
     }
 }
