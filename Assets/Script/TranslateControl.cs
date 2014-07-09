@@ -31,6 +31,11 @@ public class TranslateControl : MonoBehaviour {
         var horizontal = axisX != 0 ? axisX : accelX * accelerometerMultiplier;
         var vertical = axisY != 0 ? axisY : accelY * accelerometerMultiplier;
 
+        var heroSpeed = Hero.SelectedHero.GetComponent<Hero>().speed;
+
+        horizontal *= heroSpeed;
+        vertical *= heroSpeed;
+
         if (horizontal != 0 || vertical != 0)
         {
             var translationX = horizontal * speedX;

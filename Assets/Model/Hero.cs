@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Hero : MonoBehaviour
 {
-
+    public float speed = 1;
     public ParticleSystem blood;
     public Transform bloodExplosion;
     public float fireTime;
@@ -93,6 +93,9 @@ public class Hero : MonoBehaviour
         _firing = true;
         var obj = (Transform)Instantiate(fire1, transform.position + (Vector3.forward * 1), Quaternion.identity);
         obj.GetComponent<AudioSource>().Play();
+        
+        if (Score.points > 0)
+            Score.points -= 1;
     }
 
     private void Death()
