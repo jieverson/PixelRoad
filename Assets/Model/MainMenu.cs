@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour {
 
     public AudioSource selectSound, backgroundMusic;
     public Light light;
-    public GUIStyle selectedButtonStyle, normalButtonStyle;
+    public GUIStyle selectedButtonStyle, normalButtonStyle, smallButtonStyle;
 
     private enum Action { None, Start, HighScore, Exit }
 
@@ -66,6 +66,11 @@ public class MainMenu : MonoBehaviour {
             {
                 ExitButton();
             }
+        }
+
+        if (CreditsButton())
+        {
+            Application.LoadLevel(4);
         }
     }
 
@@ -156,5 +161,10 @@ public class MainMenu : MonoBehaviour {
     private bool ExitButton()
     {
         return GUI.Button(new Rect(_posX, _centerY + _sizeY * 2, _sizeX, _sizeY), "exit", _selection == Action.Exit ? selectedButtonStyle : normalButtonStyle);
+    }
+
+    private bool CreditsButton()
+    {
+        return GUI.Button(new Rect(_posX * 2 - 20, _centerY * 2 - 20, _sizeX, _sizeY / 2), "credits", smallButtonStyle);
     }
 }

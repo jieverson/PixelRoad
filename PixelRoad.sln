@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{8815242E-2383-2809-55C0-C934F9811D97}") = "PixelRoad", "Assembly-CSharp-firstpass.csproj", "{124064FF-3114-98E4-475A-115B6C5F5228}"
+EndProject
 Project("{8815242E-2383-2809-55C0-C934F9811D97}") = "PixelRoad", "Assembly-CSharp.csproj", "{6667714B-32E0-E42D-5E2A-57E715868419}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{124064FF-3114-98E4-475A-115B6C5F5228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{124064FF-3114-98E4-475A-115B6C5F5228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{124064FF-3114-98E4-475A-115B6C5F5228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{124064FF-3114-98E4-475A-115B6C5F5228}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6667714B-32E0-E42D-5E2A-57E715868419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6667714B-32E0-E42D-5E2A-57E715868419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6667714B-32E0-E42D-5E2A-57E715868419}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -17,7 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																														GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

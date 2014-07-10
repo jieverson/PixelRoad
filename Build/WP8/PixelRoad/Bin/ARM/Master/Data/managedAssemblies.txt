@@ -1,1 +1,3 @@
+Assembly-CSharp-firstpass.dll
 Assembly-CSharp.dll
+UniRateWP.dll

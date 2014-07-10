@@ -12,11 +12,6 @@ public class CharacterSelection : MonoBehaviour
 
     private Action _action;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (_action == Action.None)

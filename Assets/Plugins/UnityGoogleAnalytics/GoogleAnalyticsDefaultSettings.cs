@@ -7,7 +7,7 @@ namespace UnityGoogleAnalytics
     public static class GoogleAnalyticsDefaultSettings
     {
 
-        public const String TRACKING_ID = "UA-34576486-3";
+        public const String TRACKING_ID = "UA-34576486-4";
         public const String GAME_VERSION = "1.0";
 
         public static void Check()
