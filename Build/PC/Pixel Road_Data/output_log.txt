@@ -15,32 +15,7 @@ Platform assembly: C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\Assemb
 Loading C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\UniRateWP.dll (this message is harmless)
 Loading C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\UniRateWP.dll into Unity Child Domain
-- Completed reload, in  0.040 seconds
+- Completed reload, in  0.045 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-UnloadTime: 0.444332 ms
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 179.
-Total: 0.569635 ms (FindLiveObjects: 0.006842 ms CreateObjectMapping: 0.008553 ms MarkObjects: 0.109479 ms  DeleteObjects: 0.091090 ms)
-
-UnloadTime: 0.301068 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 167.
-Total: 6.976753 ms (FindLiveObjects: 0.006414 ms CreateObjectMapping: 0.006414 ms MarkObjects: 0.085530 ms  DeleteObjects: 6.437480 ms)
-
-UnloadTime: 0.318174 ms
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 178.
-Total: 5.965350 ms (FindLiveObjects: 0.008980 ms CreateObjectMapping: 0.008125 ms MarkObjects: 0.126585 ms  DeleteObjects: 5.357226 ms)
-
-Platform assembly: C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\System.Core.dll (this message is harmless)
-UnloadTime: 0.282679 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 168.
-Total: 0.476406 ms (FindLiveObjects: 0.006414 ms CreateObjectMapping: 0.006414 ms MarkObjects: 0.102209 ms  DeleteObjects: 0.062865 ms)
-
