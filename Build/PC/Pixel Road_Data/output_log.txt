@@ -11,15 +11,25 @@ Platform assembly: C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\UnityE
 Loading C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Projects\PixelRoad\Build\PC\Pixel Road_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.064 seconds
+- Completed reload, in  0.065 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-http://www.google-analytics.com/collect?v=1&tid=UA-34576486-3&cid=8c95e075d5fe557f25a85c2cf6ae86d0a92f56ce&t=event&ec=Menu&ea=exit&sr=1920x1080
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+UnloadTime: 0.762080 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Ok
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 290.
+Total: 2.181464 ms (FindLiveObjects: 0.032074 ms CreateObjectMapping: 0.026514 ms MarkObjects: 0.373342 ms  DeleteObjects: 0.381895 ms)
+
+UnloadTime: 0.800568 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 368.
+Total: 2.133567 ms (FindLiveObjects: 0.039771 ms CreateObjectMapping: 0.028652 ms MarkObjects: 0.467853 ms  DeleteObjects: 0.246328 ms)
+
+UnloadTime: 1.076833 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 146 unused Assets to reduce memory usage. Loaded Objects now: 211.
+Total: 3.421234 ms (FindLiveObjects: 0.041482 ms CreateObjectMapping: 0.028652 ms MarkObjects: 0.356663 ms  DeleteObjects: 1.721308 ms)
 
