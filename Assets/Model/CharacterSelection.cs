@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityGoogleAnalytics;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -69,18 +70,21 @@ public class CharacterSelection : MonoBehaviour
                 _action = Action.Hero;
                 Hero.SelectedHero = heroPrefeb;
                 selectSound.Play();
+                Track.Event("Character", "Hero");
             }
             else if (hitInfo.transform == blackMageSprite)
             {
                 _action = Action.BlackMage;
                 Hero.SelectedHero = blackMagePrefeb;
                 selectSound.Play();
+                Track.Event("Character", "Black Mage");
             }
             else if (hitInfo.transform == linkSprite)
             {
                 _action = Action.Link;
                 Hero.SelectedHero = linkPrefeb;
                 selectSound.Play();
+                Track.Event("Character", "Link");
             }
         }
     }
