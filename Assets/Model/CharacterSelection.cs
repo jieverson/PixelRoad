@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityGoogleAnalytics;
+using GoogleMobileAds.Api;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -12,6 +13,17 @@ public class CharacterSelection : MonoBehaviour
     private enum Action { None, Hero, BlackMage, Link }
 
     private Action _action;
+
+    void Start()
+    {
+        #if UNITY_ANDROID
+            // Android AdMob
+            BannerView bannerView = new BannerView(
+                    "ca-app-pub-9013851829730737/3873391606", AdSize.Banner, AdPosition.Bottom);
+            AdRequest request = new AdRequest.Builder().Build();
+            bannerView.LoadAd(request);
+        #endif
+    }
 
     void Update()
     {

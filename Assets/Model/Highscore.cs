@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityGoogleAnalytics;
+using Facebook;
 
 public class Highscore : MonoBehaviour
 {
@@ -10,23 +12,36 @@ public class Highscore : MonoBehaviour
 
     public float flashSpeed = 0.1F;
 
+    public Transform loginButton;
+
     private bool flash = true;
 
     private float _flashTimer;
 
+    bool login;
+
     void Start()
     {
+        login = false;
         CheckDummyScore();
 
         current.text = PlayerPrefs.GetInt("Last Score").ToString();
         first.text = PlayerPrefs.GetInt("First Score").ToString();
         second.text = PlayerPrefs.GetInt("Second Score").ToString();
         third.text = PlayerPrefs.GetInt("Third Score").ToString();
+
+        //if (FB.IsLoggedIn)
+        //{
+        //    PostScore(PlayerPrefs.GetInt("Last Score"));
+        //}
     }
 
     void Update()
     {
+        //CheckLoginClick();
+
         if (Input.anyKey || Input.touchCount > 0)
+        //if (Input.GetButtonDown("Back"))
         {
             Application.LoadLevel(0);
         }
@@ -90,4 +105,74 @@ public class Highscore : MonoBehaviour
         if (!PlayerPrefs.HasKey("Third Score"))
             PlayerPrefs.SetInt("Third Score", 0);
     }
+
+    // Facebook
+    //private void CheckLoginClick()
+    //{
+    //    loginButton.renderer.enabled = !FB.IsLoggedIn;
+
+    //    if (!FB.IsLoggedIn)
+    //    {
+    //        if (Input.touchCount > 0)
+    //        {
+    //            if (Input.GetTouch(0).phase == TouchPhase.Began)
+    //            {
+    //                RaycastHit2D hitInfo = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position), Vector2.zero);
+    //                if (hitInfo)
+    //                {
+    //                    if (hitInfo.transform == loginButton)
+    //                    {
+    //                        Debug.Log("Touch");
+    //                        login = true;
+    //                        FB.Login("email,publish_actions", LoginCallback);
+    //                        Track.Event("Login", "Highscore");
+    //                    }
+    //                }
+    //            }
+    //        }
+
+    //        if (Input.GetMouseButtonDown(0))
+    //        {
+    //            //Vector3 wp = Camera.main.ScreenToWorldPoint(Input.GetMouseButtonDown(0).);
+    //            Vector2 touchPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+    //            if (collider2D == Physics2D.OverlapPoint(touchPos))
+    //            {
+    //                Debug.Log(Physics2D.OverlapPoint(touchPos));
+    //            }
+
+    //            RaycastHit2D hitInfo = Physics2D.Raycast(new Vector2(Input.mousePosition.x, Input.mousePosition.y), Vector2.zero);               
+    //            if (hitInfo)
+    //            {
+    //                if (hitInfo.transform == loginButton)
+    //                {
+    //                    Debug.Log("Click");
+    //                    login = true;
+    //                    FB.Login("email,publish_actions", LoginCallback);
+    //                    Track.Event("Login", "Highscore");
+    //                }
+    //            }
+    //            else
+    //            {
+    //                Debug.Log("no");
+    //            }
+    //        }
+    //    }
+    //}
+
+    //void LoginCallback(FBResult result)
+    //{
+    //    if (FB.IsLoggedIn)
+    //    {
+    //        PostScore(PlayerPrefs.GetInt("Last Score"));
+    //    }
+    //}
+
+    //private void PostScore(int score)
+    //{
+    //    var data = new Dictionary<string, string>();
+    //    data.Add("score", score.ToString());
+    //    FB.API(string.Format("/{0}/scores", FB.UserId), HttpMethod.POST, formData: data);
+    //    Debug.Log("Pos Score");
+    //}
+    
 }

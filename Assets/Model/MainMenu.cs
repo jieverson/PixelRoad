@@ -14,6 +14,13 @@ public class MainMenu : MonoBehaviour {
     private Action _action, _selection;
     private float keyTimer;
 
+    void Awake()
+    {
+        // Initialize FB SDK              
+        //enabled = false;
+        FB.Init(SetInit);
+    }
+
     void Start()
     {
         _centerX = Screen.width / 2;
@@ -24,9 +31,6 @@ public class MainMenu : MonoBehaviour {
         _action = Action.None;
         _selection = Action.Start;
         Time.timeScale = 1;
-
-        //Assets.UnityGoogleAnalytics.Track.Configure("UA-34576486-3");
-        //Assets.UnityGoogleAnalytics.Track.OpenGame();
     }
 
     void OnGUI()
@@ -72,6 +76,16 @@ public class MainMenu : MonoBehaviour {
         {
             Application.LoadLevel(4);
         }
+
+        //if (!FB.IsLoggedIn)
+        //{
+        //    //GUI.Label((new Rect(179, 11, 287, 160)), "Login to Facebook", MenuSkin.GetStyle("text_only"));
+        //    //if (GUI.Button(LoginButtonRect, "", MenuSkin.GetStyle("button_login")))
+        //    if (GUI.Button(new Rect(0 - 20, _centerY * 2 - 20, _sizeX, _sizeY / 2), "facebook", smallButtonStyle))
+        //    {
+        //        FB.Login("email,publish_actions", LoginCallback);
+        //    }
+        //}
     }
 
     void Update()
@@ -167,4 +181,43 @@ public class MainMenu : MonoBehaviour {
     {
         return GUI.Button(new Rect(_posX * 2 - 20, _centerY * 2 - 20, _sizeX, _sizeY / 2), "credits", smallButtonStyle);
     }
+
+    //Facebook
+    private void SetInit()
+    {
+        //enabled = true; // "enabled" is a property inherited from MonoBehaviour                  
+        //if (FB.IsLoggedIn)
+        //{
+        //    OnLoggedIn();
+        //}
+    }
+
+    //private void OnHideUnity(bool isGameShown)
+    //{
+    //    if (!isGameShown)
+    //    {
+    //        // pause the game - we will need to hide                                             
+    //        Time.timeScale = 0;
+    //    }
+    //    else
+    //    {
+    //        // start the game back up - we're getting focus again                                
+    //        Time.timeScale = 1;
+    //    }
+    //}
+
+    //void LoginCallback(FBResult result)
+    //{
+    //    Debug.Log("LoginCallback");
+
+    //    if (FB.IsLoggedIn)
+    //    {
+    //        OnLoggedIn();
+    //    }
+    //}
+
+    //void OnLoggedIn()
+    //{
+    //    Debug.Log("Logged in. ID: " + FB.UserId);
+    //}   
 }

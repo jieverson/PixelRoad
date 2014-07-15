@@ -5,6 +5,8 @@ Project("{8815242E-2383-2809-55C0-C934F9811D97}") = "PixelRoad", "Assembly-CShar
 EndProject
 Project("{8815242E-2383-2809-55C0-C934F9811D97}") = "PixelRoad", "Assembly-CSharp-vs.csproj", "{6667714B-32E0-E42D-5E2A-57E715868419}"
 EndProject
+Project("{8815242E-2383-2809-55C0-C934F9811D97}") = "PixelRoad", "Assembly-CSharp-Editor-vs.csproj", "{CBBF1A9D-BB44-8E74-601F-F866630A7279}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +21,15 @@ Global
 		{6667714B-32E0-E42D-5E2A-57E715868419}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6667714B-32E0-E42D-5E2A-57E715868419}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6667714B-32E0-E42D-5E2A-57E715868419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBBF1A9D-BB44-8E74-601F-F866630A7279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBBF1A9D-BB44-8E74-601F-F866630A7279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBBF1A9D-BB44-8E74-601F-F866630A7279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBBF1A9D-BB44-8E74-601F-F866630A7279}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																												GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

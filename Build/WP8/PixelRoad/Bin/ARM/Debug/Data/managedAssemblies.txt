@@ -1,1 +1,5 @@
+Assembly-CSharp-firstpass.dll
 Assembly-CSharp.dll
+FacebookWinPhone8.dll
+IFacebook.dll
+UniRateWP.dll

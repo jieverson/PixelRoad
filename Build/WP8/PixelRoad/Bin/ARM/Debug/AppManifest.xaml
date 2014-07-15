@@ -6,6 +6,10 @@
     <AssemblyPart x:Name="UnityEngineProxy" Source="UnityEngineProxy.dll" />
     <AssemblyPart x:Name="WinRTBridge" Source="WinRTBridge.dll" />
     <AssemblyPart x:Name="WinRTLegacy" Source="WinRTLegacy.dll" />
+    <AssemblyPart x:Name="IFacebook" Source="IFacebook.dll" />
+    <AssemblyPart x:Name="FacebookWinPhone8" Source="FacebookWinPhone8.dll" />
+    <AssemblyPart x:Name="Assembly-CSharp-firstpass" Source="Assembly-CSharp-firstpass.dll" />
+    <AssemblyPart x:Name="UniRateWP" Source="UniRateWP.dll" />
     <AssemblyPart x:Name="BridgeInterface" Source="BridgeInterface.dll" />
     <AssemblyPart x:Name="UnityEngineDelegates" Source="UnityEngineDelegates.dll" />
     <AssemblyPart x:Name="UnityPlayer" Source="UnityPlayer.dll" />

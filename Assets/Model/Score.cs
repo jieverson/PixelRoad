@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using GoogleMobileAds.Api;
 
 public class Score : MonoBehaviour {
 
@@ -11,7 +12,15 @@ public class Score : MonoBehaviour {
 
 	void Start () {
         points = 0;
-	}
+
+        #if UNITY_ANDROID
+            // Android AdMob
+            BannerView bannerView = new BannerView(
+                    "ca-app-pub-9013851829730737/3873391606", AdSize.Banner, AdPosition.Bottom);
+            AdRequest request = new AdRequest.Builder().Build();
+            bannerView.LoadAd(request);
+        #endif
+    }
 	
 	void Update () {
         _timer += Time.deltaTime;
