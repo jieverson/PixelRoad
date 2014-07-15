@@ -2,6 +2,7 @@
   <Deployment.Parts>
     <AssemblyPart x:Name="PixelRoad" Source="PixelRoad.dll" />
     <AssemblyPart x:Name="Assembly-CSharp" Source="Assembly-CSharp.dll" />
+    <AssemblyPart x:Name="GoogleAds" Source="GoogleAds.dll" />
     <AssemblyPart x:Name="UnityEngine" Source="UnityEngine.dll" />
     <AssemblyPart x:Name="UnityEngineProxy" Source="UnityEngineProxy.dll" />
     <AssemblyPart x:Name="WinRTBridge" Source="WinRTBridge.dll" />

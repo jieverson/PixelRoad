@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityGoogleAnalytics;
 using Facebook;
+using GoogleMobileAds.Api;
 
 public class Highscore : MonoBehaviour
 {
@@ -30,10 +31,7 @@ public class Highscore : MonoBehaviour
         second.text = PlayerPrefs.GetInt("Second Score").ToString();
         third.text = PlayerPrefs.GetInt("Third Score").ToString();
 
-        //if (FB.IsLoggedIn)
-        //{
-        //    PostScore(PlayerPrefs.GetInt("Last Score"));
-        //}
+        AdManager.ShowAds();
     }
 
     void Update()

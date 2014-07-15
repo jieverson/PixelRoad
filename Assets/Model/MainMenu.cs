@@ -23,6 +23,8 @@ public class MainMenu : MonoBehaviour {
 
     void Start()
     {
+        AdManager.HideAds();
+
         _centerX = Screen.width / 2;
         _centerY = Screen.height / 2.2f;
         _sizeX = Screen.width / 3;

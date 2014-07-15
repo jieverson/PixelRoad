@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityGoogleAnalytics;
 using GoogleMobileAds.Api;
+using System;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -16,13 +17,7 @@ public class CharacterSelection : MonoBehaviour
 
     void Start()
     {
-        #if UNITY_ANDROID
-            // Android AdMob
-            BannerView bannerView = new BannerView(
-                    "ca-app-pub-9013851829730737/3873391606", AdSize.Banner, AdPosition.Bottom);
-            AdRequest request = new AdRequest.Builder().Build();
-            bannerView.LoadAd(request);
-        #endif
+        AdManager.ShowAds();
     }
 
     void Update()
@@ -41,7 +36,7 @@ public class CharacterSelection : MonoBehaviour
                     Hit(Input.GetTouch(0).position);
                 }
             }
-            
+
             if (Input.GetMouseButtonDown(0))
             {
                 Hit(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
@@ -49,6 +44,7 @@ public class CharacterSelection : MonoBehaviour
         }
         else if (!selectSound.isPlaying)
         {
+            AdManager.HideAds();
             Application.LoadLevel(2);
         }
 

@@ -17,6 +17,7 @@ using Windows.Devices.Geolocation;
 
 using UnityApp = UnityPlayer.UnityApp;
 using UnityBridge = WinRTBridge.WinRTBridge;
+using GoogleAds;
 
 namespace PixelRoad
 {
@@ -58,7 +59,41 @@ namespace PixelRoad
 		private void Unity_Loaded()
 		{
 			SetupGeolocator();
+
+            AdManager.AdsChanged += AdManager_AdsChanged;
 		}
+
+        private AdView _bannerAd;
+        private void AdManager_AdsChanged(bool show)
+        {
+            Dispatcher.BeginInvoke(() =>
+            {
+                if (_bannerAd == null)
+                {
+                    _bannerAd = new AdView
+                    {
+                        Format = AdFormats.SmartBanner,
+                        AdUnitID = "ca-app-pub-9013851829730737/8303591205"
+                    };
+                    //_bannerAd.ReceivedAd += AdBanner_ReceivedAd;
+                    //_bannerAd.FailedToReceiveAd += AdBanner_FailedToReceiveAd;
+                    _bannerAd.VerticalAlignment = VerticalAlignment.Bottom;   
+                }
+
+                if (show)
+                {
+                    DrawingSurfaceBackground.Children.Add(_bannerAd);
+
+                    AdRequest adRequest = new AdRequest();
+                    //adRequest.ForceTesting = true;
+                    _bannerAd.LoadAd(adRequest);
+                }
+                else
+                {
+                    DrawingSurfaceBackground.Children.Remove(_bannerAd);
+                }
+            });
+        }
 
 		private void PhoneApplicationPage_BackKeyPress(object sender, CancelEventArgs e)
 		{

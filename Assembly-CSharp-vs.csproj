@@ -81,6 +81,7 @@
      <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\IOSBannerClient.cs" />
      <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\IOSInterstitialClient.cs" />
      <Compile Include="Assets\GoogleMobileAds\Platforms\iOS\MonoPInvokeCallbackAttribute.cs" />
+     <Compile Include="Assets\Model\AdManager.cs" />
      <Compile Include="Assets\Model\CharacterSelection.cs" />
      <Compile Include="Assets\Model\Credits.cs" />
      <Compile Include="Assets\Model\FacebookLogin.cs" />

@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ads="clr-namespace:GoogleAds;assembly=GoogleAds"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -13,6 +14,9 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <DrawingSurfaceBackgroundGrid x:Name="DrawingSurfaceBackground" Loaded="DrawingSurfaceBackground_Loaded">
+        <!--<ads:AdView Name="AdBanner" AdUnitID="ca-app-pub-9013851829730737/8303591205" Background="Red"
+                    Format="SmartBanner" VerticalAlignment="Bottom" Visibility="Collapsed"
+                    ReceivedAd="AdBanner_ReceivedAd" FailedToReceiveAd="AdBanner_FailedToReceiveAd"/>-->
     </DrawingSurfaceBackgroundGrid>
 
 </phone:PhoneApplicationPage>
